@@ -7,6 +7,7 @@ import {
   signOutUser,
   validateUserAccess
 } from "./auth";
+import googleSignInImage from "./assets/image.png";
 
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
 
@@ -258,7 +259,7 @@ const App = () => {
             disabled={isAuthLoading}
           >
             <img
-              src="/src/assets/image.png"
+              src={googleSignInImage}
               alt={isAuthLoading ? "Checking..." : "Continue with Google"}
             />
           </button>
