@@ -352,7 +352,14 @@ const App = () => {
         ...prev[teamId],
         [roundNumber]: {
           ...(prev[teamId]?.[roundNumber] || {}),
-          [field]: normalizedValue
+          ...(field === "review"
+            ? { review: normalizedValue }
+            : {
+                scores: {
+                  ...(prev[teamId]?.[roundNumber]?.scores || {}),
+                  [field]: normalizedValue
+                }
+              })
         }
       }
     }));
@@ -375,7 +382,7 @@ const App = () => {
     const payloadScores = {};
 
     for (const item of CRITERIA) {
-      const rawValue = teamScores[item.key] ?? 0;
+      const rawValue = teamScores.scores?.[item.key] ?? 0;
       const numericValue = Number(rawValue);
 
       if (Number.isNaN(numericValue) || numericValue < 0 || numericValue > 10) {
