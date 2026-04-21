@@ -766,23 +766,26 @@ const App = () => {
                                     <input
                                       type="text"
                                       inputMode="numeric"
-                                      min="0"
-                                      max="10"
-                                      step="1"
-                                      // FIX: Structure mismatch. Looking inside 'scores' nested object.
-                                      value={
-                                        scores[team.id]?.[currentRound]?.scores?.[item.key] ?? ""
-                                      }
-                                      onChange={(event) =>
-                                        handleScoreChange(
-                                          team.id,
-                                          currentRound,
-                                          item.key,
-                                          event.target.value
-                                        )
-                                      }
                                       placeholder="0-10"
-                                      disabled={isRoundSubmitted} 
+                                      value={
+                                      scores[team.id]?.[currentRound]?.scores?.[item.key] ?? ""
+                                    }
+                                    onChange={(event) => {
+                                      let val = event.target.value;
+
+                                      // Allow only digits
+                                      if (!/^\d*$/.test(val)) return;
+
+                                      // Enforce 0–10 range
+                                      if (val !== "") {
+                                        const num = Number(val);
+                                        if (num < 0 || num > 10) return;
+                                      }
+
+                                      handleScoreChange(team.id, currentRound, item.key, val);
+                                    }}
+                                    disabled={isRoundSubmitted}
+ 
                                     />
                                  </label>
                                 ))}
