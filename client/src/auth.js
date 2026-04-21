@@ -44,6 +44,7 @@ export const fetchJson = async (url, options = {}) => {
   // It relies on getAccessToken from the same file
   const token = await getAccessToken(); 
   
+  
   const headers = {
     "Content-Type": "application/json",
     ...(options.headers || {})
