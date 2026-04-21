@@ -764,7 +764,8 @@ const App = () => {
                                   <label key={item.key} className={`criteria-item ${isRoundSubmitted ? "disabled" : ""}`}>
                                     {item.label}
                                     <input
-                                      type="number"
+                                      type="text"
+                                      inputMode="numeric"
                                       min="0"
                                       max="10"
                                       step="1"
