@@ -218,7 +218,7 @@ const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
 const ENABLE_LOADING_PREVIEW = false; 
 
 // === ENSURE CONSTANTS ARE RE-ADDED ===
-const ROUNDS = [1, 2];
+const ROUNDS = [1];
 const CRITERIA = [
   { key: "problem_understanding", label: "Problem Understanding" },
   { key: "innovation_creativity", label: "Innovation / Creativity" },
@@ -712,7 +712,7 @@ const App = () => {
                                             : ""
                                       }`}
                                     >
-                                      R{roundNumber}
+                                      Marked
                                     </span>
                                   ))}
                                 </span>
@@ -734,8 +734,8 @@ const App = () => {
                             {expandedTeamId === team.id && (
                               <div className="criteria-grid">
                                 <div className="criteria-rounds">
-                                  <span className="criteria-rounds-label">Evaluation round</span>
-                                  <div className="round-toggle" role="tablist" aria-label="Evaluation round">
+                                  <span className="criteria-rounds-label">Evaluation status</span>
+                                  <div className="round-toggle" role="tablist" aria-label="Evaluation status">
                                     {ROUNDS.map((roundNumber) => (
                                       <button
                                         key={roundNumber}
@@ -752,7 +752,7 @@ const App = () => {
                                           }))
                                         }
                                       >
-                                        Round {roundNumber}
+                                        Marked
                                       </button>
                                     ))}
                                   </div>
@@ -820,8 +820,8 @@ const App = () => {
                                     onClick={() => submitScore(team.id, currentRound)}
                                   >
                                     {isRoundSubmitted
-                                      ? `Round ${currentRound} Submitted`
-                                      : `Submit Round ${currentRound}`}
+                                      ? `Submitted`
+                                      : `Submit`}
                                   </button>
                                 </div>
                               </div>

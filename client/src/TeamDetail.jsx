@@ -78,7 +78,7 @@ const styles = `
 
 // Reuse base URL and constants from existing setup
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
-const ROUNDS = [1, 2];
+const ROUNDS = [1];
 const CRITERIA = [
   { key: "problem_understanding", label: "Problem Understanding" },
   { key: "innovation_creativity", label: "Innovation / Creativity" },
@@ -132,7 +132,7 @@ const TeamDetail = () => {
       setTeamData(matchedTeam || null);
 
       // Fetch all submitted round scores in one call.
-      // Server responds as: { "1": { review, scores }, "2": { review, scores } }
+      // Server responds as: { "1": { review, scores }, ... }
       const scoresMap = await fetchJson(`${API_BASE}/scores/${teamId}`);
       setScoresByRound(scoresMap || {});
 
@@ -162,7 +162,7 @@ const TeamDetail = () => {
           <section className="panel detail-loading-shell" aria-live="polite" aria-busy="true">
             <div className="skeleton-line skeleton-title" />
             <div className="skeleton-line skeleton-subtitle" />
-            {[1, 2].map((item) => (
+            {[1].map((item) => (
               <div key={item} className="skeleton-card">
                 <div className="skeleton-line" style={{ width: "40%", height: "22px" }} />
                 <div className="skeleton-line skeleton-row" style={{ width: "95%" }} />
@@ -203,7 +203,7 @@ const TeamDetail = () => {
 
               return (
                 <div key={roundNumber} className="round-score-card">
-                  <h3 className="round-title">Round {roundNumber} Score</h3>
+                  <h3 className="round-title">Team Score</h3>
                   <div className="leaderboard">
                     {CRITERIA.map((criterion) => {
                       const scoreValue = roundScore.scores?.[criterion.key];
