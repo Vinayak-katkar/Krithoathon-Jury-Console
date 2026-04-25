@@ -35,10 +35,7 @@ const CRITERIA_FIELDS = [
   "functionality_demo",
   "impact_usefulness",
   "ui_ux_design",
-  "feasibility",
-  "presentation_communication",
-  "business_market_potential",
-  "testing_robustness"
+  "feasibility"
 ];
 
 // === 1. NEW HELPER FUNCTION TO GET THE ROUND-SPECIFIC TABLE NAME ===

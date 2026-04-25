@@ -219,17 +219,15 @@ const ENABLE_LOADING_PREVIEW = false;
 
 // === ENSURE CONSTANTS ARE RE-ADDED ===
 const ROUNDS = [1];
+
 const CRITERIA = [
   { key: "problem_understanding", label: "Problem Understanding" },
-  { key: "innovation_creativity", label: "Innovation / Creativity" },
-  { key: "technical_implementation", label: "Technical Implementation" },
-  { key: "functionality_demo", label: "Functionality / Demo" },
-  { key: "impact_usefulness", label: "Impact & Usefulness" },
-  { key: "ui_ux_design", label: "UI/UX Design" },
-  { key: "feasibility", label: "Feasibility" },
-  { key: "presentation_communication", label: "Presentation / Communication" },
-  { key: "business_market_potential", label: "Business / Market Potential" },
-  { key: "testing_robustness", label: "Testing & Robustness" }
+  { key: "innovation_creativity", label: "Novelty" },
+  { key: "technical_implementation", label: "Feasibility" },
+  { key: "functionality_demo", label: "Practicability of Idea" },
+  { key: "impact_usefulness", label: "Sustainability" },
+  { key: "ui_ux_design", label: "Rate of scale of impact" },
+  { key: "feasibility", label: "User Experience and Potential for future work" }
 ];
 
 const getRouteFromPath = (path) => {
@@ -654,7 +652,7 @@ const App = () => {
               {isTeamsLoading && (
                 <div className="teams-loading" aria-live="polite" aria-busy="true">
                   <div className="team-skeleton-groups" aria-hidden="true">
-                    {["HEALTH", "AGRICULTURE", "AI"].map((domain) => (
+                    {[" ", " ", " "].map((domain) => (
                       <div key={domain} className="team-skeleton-group">
                         <div className="team-skeleton-domain">{domain}</div>
                         {[0, 1].map((item) => (
@@ -736,25 +734,7 @@ const App = () => {
                                 <div className="criteria-rounds">
                                   <span className="criteria-rounds-label">Evaluation status</span>
                                   <div className="round-toggle" role="tablist" aria-label="Evaluation status">
-                                    {ROUNDS.map((roundNumber) => (
-                                      <button
-                                        key={roundNumber}
-                                        type="button"
-                                        className={`round-toggle-button ${
-                                          currentRound === roundNumber
-                                            ? "round-toggle-button-active"
-                                            : ""
-                                        }`}
-                                        onClick={() =>
-                                          setSelectedRounds((prev) => ({
-                                            ...prev,
-                                            [team.id]: roundNumber
-                                          }))
-                                        }
-                                      >
-                                        Marked
-                                      </button>
-                                    ))}
+                                    
                                   </div>
                                   {isRoundSubmitted && (
                                     <span className="round-submitted-note">

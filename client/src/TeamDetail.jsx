@@ -81,15 +81,12 @@ const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
 const ROUNDS = [1];
 const CRITERIA = [
   { key: "problem_understanding", label: "Problem Understanding" },
-  { key: "innovation_creativity", label: "Innovation / Creativity" },
-  { key: "technical_implementation", label: "Technical Implementation" },
-  { key: "functionality_demo", label: "Functionality / Demo" },
-  { key: "impact_usefulness", label: "Impact & Usefulness" },
-  { key: "ui_ux_design", label: "UI/UX Design" },
-  { key: "feasibility", label: "Feasibility" },
-  { key: "presentation_communication", label: "Presentation / Communication" },
-  { key: "business_market_potential", label: "Business / Market Potential" },
-  { key: "testing_robustness", label: "Testing & Robustness" }
+  { key: "innovation_creativity", label: "Novelty" },
+  { key: "technical_implementation", label: "Feasibility" },
+  { key: "functionality_demo", label: "Practicability of Idea" },
+  { key: "impact_usefulness", label: "Sustainability" },
+  { key: "ui_ux_design", label: "Rate of scale of impact" },
+  { key: "feasibility", label: "User Experience and Potential for future work" }
 ];
 
 const TeamDetail = () => {
